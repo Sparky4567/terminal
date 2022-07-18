@@ -6,8 +6,9 @@
     <script defer>
         window.addEventListener("load",()=>{
         let videoId = {{ $ttLink }};
+        let className = {{ $className }}
         let fetchUrl = "https://www.tiktok.com/oembed?url="+videoId;
-        let classSelector = String({{ $className }});
+        let classSelector = String(className);
         fetch(fetchUrl).then((r)=>r.json()).then((d)=>{
             document.getElementsByClassName(classSelector)[0].innerHTML = d.html;
             let sc = document.createElement("script");
@@ -18,4 +19,4 @@
         });
         });
     </script>
-    </tiktok>
+</tiktok>
